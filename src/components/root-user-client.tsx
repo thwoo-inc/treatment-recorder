@@ -2,9 +2,9 @@
 
 import { SidebarProvider } from '@/components/ui/sidebar';
 import { AppSidebar } from '@/components/app-sidebar';
-// import { QueryClient, QueryClientProvider } from 'react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-// const queryClient = new QueryClient();
+const queryClient = new QueryClient();
 
 export default function RootUserClient({
   children,
@@ -12,14 +12,14 @@ export default function RootUserClient({
   children: React.ReactNode;
 }>) {
   return (
-    // <QueryClientProvider client={queryClient}>
-    <SidebarProvider>
-      <AppSidebar />
-      <main className="flex flex-col items-center justify-center min-h-screen w-full">
-        {/* <SidebarTrigger /> */}
-        {children}
-      </main>
-    </SidebarProvider>
-    // </QueryClientProvider>
+    <QueryClientProvider client={queryClient}>
+      <SidebarProvider>
+        <AppSidebar />
+        <main className="flex flex-col items-center justify-center min-h-screen w-full">
+          {/* <SidebarTrigger /> */}
+          {children}
+        </main>
+      </SidebarProvider>
+    </QueryClientProvider>
   );
 }
