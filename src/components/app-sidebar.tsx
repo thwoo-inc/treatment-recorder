@@ -9,7 +9,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { Clock, FileText, Home, MessagesSquare } from 'lucide-react';
+import { Clock, FileText, Home } from 'lucide-react';
 import Link from 'next/link';
 
 // Menu items.

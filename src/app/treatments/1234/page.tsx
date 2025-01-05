@@ -1,7 +1,7 @@
 'use client';
 
-import { border } from '@/app/treatment-templates/page';
 import { Button } from '@/components/ui/button';
+import { border } from '@/lib/style';
 import { cn } from '@/lib/utils';
 import { Treatment } from '@/types/treatments ';
 import { useState } from 'react';
