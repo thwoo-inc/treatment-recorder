@@ -1,7 +1,6 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { border } from '@/lib/style';
 import { cn } from '@/lib/utils';
 import { Treatment } from '@/types/treatments ';
 import { useState } from 'react';
@@ -90,9 +89,16 @@ export default function Page() {
                 <p>{history.time}</p>
                 <p className={cn('inline p-1', border(history.department))}>{history.department}</p>
               </div>
-              <div className="flex justify-between items-center">
+              <div className="flex justify-start items-center space-x-2">
                 <p>{history.details}</p>
-                <p className="bg-muted p-2">{history.action}</p>
+                <p
+                  className={cn(
+                    'p-2',
+                    history.action === '開始' ? 'border-black border' : 'bg-black text-white',
+                  )}
+                >
+                  {history.action}
+                </p>
               </div>
             </li>
           ))}
@@ -232,3 +238,26 @@ const histories = [
     action: '終了',
   },
 ];
+
+const border = (department: string) => {
+  switch (department) {
+    case '産科':
+      return 'border border-red-500';
+    case '麻酔科':
+      return 'border border-yellow-500';
+    case '救急科':
+      return 'border border-green-500';
+    case '新生児科':
+      return 'border border-cyan-500';
+    case '輸血部':
+      return 'border border-teal-500';
+    case '集中治療科':
+      return 'border border-blue-500';
+    case '看護部':
+      return 'border border-purple-500';
+    case '薬剤部':
+      return 'border border-pink-500';
+    default:
+      return 'border border-gray-500';
+  }
+};
